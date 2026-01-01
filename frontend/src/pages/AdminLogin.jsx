@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-        const res = await axios.post("http://localhost:3000/api/admin", 
+        const res = await axios.post("https://logistics-vehicle-booking-system-d67m.onrender.com/api/admin", 
         {email, password},
       {withCredentials: true}
     )

@@ -14,7 +14,7 @@ const BookingConfirm = ({vehicle, form, duration, onCancel}) => {
 
   const bookingConfirmation = async()=>{
     try {
-          const res = await axios.post("http://localhost:3000/api/bookings", 
+          const res = await axios.post("https://logistics-vehicle-booking-system-d67m.onrender.com/api/bookings", 
         {
         vehicleId: vehicle._id, 
         fromPincode:form.frompincode, 

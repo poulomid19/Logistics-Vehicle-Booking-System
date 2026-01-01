@@ -108,7 +108,7 @@ router.get("/admincheck", authCheck, (req,res)=>{
 router.post("/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "none",
   }).status(200).json({ message: "Logged out successfully" });
 });

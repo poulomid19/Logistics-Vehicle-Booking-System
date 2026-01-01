@@ -17,7 +17,7 @@ const Add = () => {
     }
      const submitHandler =(e)=>{
         e.preventDefault()
-        fetch("http://localhost:3000/api/add",{
+        fetch("https://logistics-vehicle-booking-system-d67m.onrender.com/api/add",{
             method:'POST',
             headers:
             {
@@ -38,7 +38,7 @@ const Add = () => {
      }
     const handleLogout = async () => {
   try {
-    const res = await axios.post("http://localhost:3000/api/logout", null, { withCredentials: true });
+    const res = await axios.post("https://logistics-vehicle-booking-system-d67m.onrender.com/api/logout", null, { withCredentials: true });
     toast.success(res.data?.message || "Logged out successfully");
     navigate("/admin"); 
   } catch (error) {

@@ -40,7 +40,7 @@ const Search = () => {
 
   const query = new URLSearchParams(form).toString();
 
-  fetch(`http://localhost:3000/api/vehicles/available?${query}`)
+  fetch(`https://logistics-vehicle-booking-system-d67m.onrender.com/api/vehicles/available?${query}`)
     .then((res) => res.json())
     .then((data) => {
       // console.log("API RESPONSE 👉", data);

@@ -17,8 +17,8 @@ const authController = async(req,res)=>{
     );
      res.cookie("token",token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "strict",
+    secure: true,
+    sameSite: "none",
      }).json({ message: "Login successful" });
  } catch (error) {
     res.status(500).json({message: error})

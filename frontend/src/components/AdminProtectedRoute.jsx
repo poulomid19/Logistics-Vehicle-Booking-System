@@ -6,7 +6,7 @@ const AdminProtectedRoute = () => {
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(()=>{
-     axios.get("http://localhost:3000/api/admincheck", { withCredentials: true })
+     axios.get("https://logistics-vehicle-booking-system-d67m.onrender.com/api/admincheck", { withCredentials: true })
      .then(()=>{
         setIsAdmin(true)
         setLoading(false)
