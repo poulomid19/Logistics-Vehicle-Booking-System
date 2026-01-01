@@ -31,6 +31,12 @@ const Add = () => {
           // console.log(data)
           toast.success(data.message)
         })
+        
+      setData({
+      name: "",
+      capacitykg: "",
+      tyres: "",
+      })
         .catch((err)=>{
             console.log(err)
             toast.error(err.message || "something went wrong")
