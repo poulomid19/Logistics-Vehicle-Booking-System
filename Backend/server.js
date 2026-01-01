@@ -1,15 +1,36 @@
-const express = require("express")
-const app = express()
-const port = 3000
-const routes = require("./routes")
-const cors = require("cors")
-const mongoose = require("mongoose")
-app.use(cors())
-app.use(express.json({extended:true}))
-app.use("/api", routes)
+const express = require("express");
+const cors = require("cors");
 
-mongoose.connect("mongodb://127.0.0.1:27017/vehicleBooking")
+const dotenv = require("dotenv")
+dotenv.config()
 
-app.listen((port),()=>{
-    console.log(`app running at http://localhost:${port}`)
-})
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+
+
+const routes = require("./routes");
+const seedAdmin = require("./seedAdmin");
+
+const app = express();
+const port = process.env.PORT;
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/api", routes);
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Atlas connected");
+    seedAdmin(); // runs ONCE
+  })
+  .catch(err => console.error(err));
+
+app.listen(port, () => {
+  console.log(`App running at http://localhost:${port}`);
+});
